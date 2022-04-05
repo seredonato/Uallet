@@ -11,15 +11,12 @@ class WalletAddViewController: UIViewController {
     
     @IBOutlet weak var txtNameWallet: UITextField!
     @IBOutlet weak var txtAmountWallet: UITextField!
-
-    @IBOutlet weak var segmentedCoin: UISegmentedControl!
+    var coin: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addBtnsAddWallet()
     }
-    
-    
     
     func addBtnsAddWallet(){
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveData))
@@ -38,19 +35,36 @@ class WalletAddViewController: UIViewController {
         addNewWallet()
     }
 
+    @IBOutlet weak var selectedCoin: UISegmentedControl!
+    
+    @IBAction func segmentedControlCoin(_ sender: Any) {
+        switch selectedCoin.selectedSegmentIndex{
+        case 0:
+            coin = "bitcoin"
+            break
+        case 1:
+            coin = "dólares"
+            break
+        case 3:
+            coin = "pesos argentinos"
+            break
+        default:
+            coin = "bitcoin"
+        }
+    }
+
     
     @IBAction func addNewWallet() {
         let nameWallet = txtNameWallet.text!
         let amountWallet = txtAmountWallet.text!
-        let coinWallet = "lala"
-    
-        let resultValidateEmptyFields = validateEmptyFields(nameWallet, coinWallet, amountWallet)
+        
+        let resultValidateEmptyFields = validateEmptyFields(nameWallet, amountWallet)
         
         if resultValidateEmptyFields{
             let alert = Utils.showAlert(title: "Agregar Wallet", message: "Complete los campos vacíos")
             present(alert, animated: true)
         }else{
-            let resultSave = saveWalletInStorage(nameWallet,coinWallet, amountWallet)
+            let resultSave = saveWalletInStorage(nameWallet,self.coin, amountWallet)
             if resultSave{
                 dismiss(animated: true)
             }
@@ -61,9 +75,7 @@ class WalletAddViewController: UIViewController {
     func saveWalletInStorage(_ nameWallet: String, _ coinWallet: String, _ amountWallet: String)-> Bool {
         let getWallet = Storage.getData(nameKey: nameWallet)
         if getWallet.isEmpty{
-            Storage.saveData(value: nameWallet , nameKey: nameWallet)
-            Storage.saveData(value: amountWallet , nameKey: amountWallet)
-            Storage.saveData(value: coinWallet , nameKey: coinWallet)
+            Storage.saveData(value: "$\(amountWallet) \(coinWallet)" , nameKey: nameWallet)
             return true
         }else{
             let alert = Utils.showAlert(title: "Agregar Wallet", message: "Oops! Ya existe una Wallet con ese nombre")
@@ -74,7 +86,7 @@ class WalletAddViewController: UIViewController {
 
     
     //Empty Fields
-    func validateEmptyFields(_ name: String, _ coin: String, _ amount: String) -> Bool{
-        name.isEmpty || coin.isEmpty || amount.isEmpty ? true : false
+    func validateEmptyFields(_ name: String, _ amount: String) -> Bool{
+        name.isEmpty || amount.isEmpty ? true : false
     }
 }

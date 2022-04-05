@@ -22,8 +22,8 @@ class Storage{
     static func getData(nameKey: String)->String{
         let defaults = UserDefaults.standard
         let result = defaults.string(forKey: nameKey)
-    
-        return result == nil ? "" : result!
+        let description = result?.description
+        return description == nil ? "" : description!
     }
     
     static func saveDate(value: Date){
