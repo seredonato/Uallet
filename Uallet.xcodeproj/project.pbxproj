@@ -35,7 +35,8 @@
 		F2AFD56927F4B58200542004 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFD56727F4B58200542004 /* MainTabViewController.swift */; };
 		F2AFD56A27F4B58200542004 /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2AFD56827F4B58200542004 /* MainTabViewController.xib */; };
 		F2CC35B827FA95FE0054FE9B /* APIStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CC35B727FA95FE0054FE9B /* APIStructs.swift */; };
-		F2D44F8E27FB6728009EB9E2 /* APIValuesPromises.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D44F8D27FB6728009EB9E2 /* APIValuesPromises.swift */; };
+		F2D44F8E27FB6728009EB9E2 /* APIRatePromises.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D44F8D27FB6728009EB9E2 /* APIRatePromises.swift */; };
+		F2DBCE3A27FCAA9D00E2961E /* DolarRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DBCE3927FCAA9D00E2961E /* DolarRate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +95,8 @@
 		F2AFD56727F4B58200542004 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		F2AFD56827F4B58200542004 /* MainTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabViewController.xib; sourceTree = "<group>"; };
 		F2CC35B727FA95FE0054FE9B /* APIStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStructs.swift; sourceTree = "<group>"; };
-		F2D44F8D27FB6728009EB9E2 /* APIValuesPromises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIValuesPromises.swift; sourceTree = "<group>"; };
+		F2D44F8D27FB6728009EB9E2 /* APIRatePromises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRatePromises.swift; sourceTree = "<group>"; };
+		F2DBCE3927FCAA9D00E2961E /* DolarRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DolarRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,7 +247,8 @@
 			children = (
 				F2CC35B727FA95FE0054FE9B /* APIStructs.swift */,
 				F238AA7027F37AA400C731EB /* API.swift */,
-				F2D44F8D27FB6728009EB9E2 /* APIValuesPromises.swift */,
+				F2D44F8D27FB6728009EB9E2 /* APIRatePromises.swift */,
+				F2DBCE3927FCAA9D00E2961E /* DolarRate.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -507,8 +510,9 @@
 				F238AA7327F37C4C00C731EB /* Storage.swift in Sources */,
 				F238AA7627F3927800C731EB /* HomeViewController.swift in Sources */,
 				F238AA7A27F39B7C00C731EB /* DashboardViewController.swift in Sources */,
-				F2D44F8E27FB6728009EB9E2 /* APIValuesPromises.swift in Sources */,
+				F2D44F8E27FB6728009EB9E2 /* APIRatePromises.swift in Sources */,
 				F20EAECF27F6320000890D14 /* Utils.swift in Sources */,
+				F2DBCE3A27FCAA9D00E2961E /* DolarRate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
