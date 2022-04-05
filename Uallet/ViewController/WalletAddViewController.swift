@@ -11,15 +11,79 @@ class WalletAddViewController: UIViewController {
     
     @IBOutlet weak var txtNameWallet: UITextField!
     @IBOutlet weak var txtAmountWallet: UITextField!
-    var coin: String = ""
+    var coin: Currency = .Bitcoin
+    var callback: ((Bool) -> Void)?
+    
+    func set(callback: @escaping (Bool)->Void) {
+        self.callback = callback
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBtnsAddWallet()
+        addBtnsWallet()
     }
     
-    func addBtnsAddWallet(){
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveData))
+    // MARK: - SegmentedControl COIN
+    
+    @IBOutlet weak var selectedCoin: UISegmentedControl!
+    
+    @IBAction func segmentedControlCoin(_ sender: Any) {
+        switch selectedCoin.selectedSegmentIndex{
+        case 0:
+            coin = .Bitcoin
+            break
+        case 1:
+            coin = .Dollar
+            break
+        case 2:
+            coin = .Peso
+            break
+        default:
+            coin = .Bitcoin
+        }
+    }
+    
+    // MARK: - Btn of Add Wallet
+    
+    @IBAction func addNewWallet() {
+        let nameWallet = txtNameWallet.text!
+        let amountWallet = txtAmountWallet.text!
+
+        let resultValidateEmptyFields = validateEmptyFields(nameWallet, amountWallet)
+        
+        if resultValidateEmptyFields{
+            let alert = Utils.showAlert(title: "Agregar Wallet", message: "Complete los campos vacíos")
+            present(alert, animated: true)
+        }else{
+            let resultSave = saveWalletInStorage(nameWallet, self.coin, amountWallet)
+            if resultSave{
+                dismiss(animated: true)
+                if let callback = callback {
+                    callback(true)
+                }
+            }
+        }
+    }
+    
+    func saveWalletInStorage(_ nameWallet: String, _ coinWallet: Currency, _ amountWallet: String)-> Bool {
+        let getWallet = Storage.getData(nameKey: nameWallet)
+        if getWallet.isEmpty{
+            let wallet = Wallet(name: nameWallet, balance: Double(amountWallet) ?? 0, currency: coinWallet)
+            WalletsStorage.shared.add(wallet)
+            return true
+        }else{
+            let alert = Utils.showAlert(title: "Agregar Wallet", message: "Oops! Ya existe una Wallet con ese nombre")
+            present(alert, animated: true)
+            return false
+        }
+    }
+    
+    
+    
+    // MARK: - Events of UI
+    
+    func addBtnsWallet(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "SecondaryColor")
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
@@ -29,63 +93,18 @@ class WalletAddViewController: UIViewController {
     
     @objc func cancel(){
         dismiss(animated: true)
+        
+        if let callback = callback {
+            callback(false)
+        }
     }
     
-    @objc func saveData(){
+    @objc func save(){
         addNewWallet()
     }
-
-    @IBOutlet weak var selectedCoin: UISegmentedControl!
     
-    @IBAction func segmentedControlCoin(_ sender: Any) {
-        switch selectedCoin.selectedSegmentIndex{
-        case 0:
-            coin = "bitcoin"
-            break
-        case 1:
-            coin = "dólares"
-            break
-        case 3:
-            coin = "pesos argentinos"
-            break
-        default:
-            coin = "bitcoin"
-        }
-    }
-
     
-    @IBAction func addNewWallet() {
-        let nameWallet = txtNameWallet.text!
-        let amountWallet = txtAmountWallet.text!
-        
-        let resultValidateEmptyFields = validateEmptyFields(nameWallet, amountWallet)
-        
-        if resultValidateEmptyFields{
-            let alert = Utils.showAlert(title: "Agregar Wallet", message: "Complete los campos vacíos")
-            present(alert, animated: true)
-        }else{
-            let resultSave = saveWalletInStorage(nameWallet,self.coin, amountWallet)
-            if resultSave{
-                dismiss(animated: true)
-            }
-        }
-    }
-    
-
-    func saveWalletInStorage(_ nameWallet: String, _ coinWallet: String, _ amountWallet: String)-> Bool {
-        let getWallet = Storage.getData(nameKey: nameWallet)
-        if getWallet.isEmpty{
-            Storage.saveData(value: "$\(amountWallet) \(coinWallet)" , nameKey: nameWallet)
-            return true
-        }else{
-            let alert = Utils.showAlert(title: "Agregar Wallet", message: "Oops! Ya existe una Wallet con ese nombre")
-            present(alert, animated: true)
-            return false
-        }
-    }
-
-    
-    //Empty Fields
+    // MARK: - EmptyFields
     func validateEmptyFields(_ name: String, _ amount: String) -> Bool{
         name.isEmpty || amount.isEmpty ? true : false
     }

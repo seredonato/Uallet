@@ -55,7 +55,7 @@
                                     <rect key="frame" x="0.0" y="34" width="388" height="34"/>
                                     <gestureRecognizers/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" textContentType="username"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="alphabet" textContentType="username"/>
                                 </textField>
                             </subviews>
                         </stackView>

@@ -19,7 +19,4 @@ class Utils{
         
         return alert
     }
-    
-  
-        
 }

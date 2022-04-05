@@ -20,7 +20,7 @@ class MainTabViewController: UITabBarController {
     
     func addTabBar() {
         let homeNavigationVC = addNavigationAndTab(controller: HomeViewController(), title: "Home", icon: "house.fill")
-        let walletNavigationVC = addNavigationAndTab(controller: WalletViewController(), title: "Wallets", icon: "folder.fill")
+        let walletNavigationVC = addNavigationAndTab(controller: WalletsViewController(), title: "Wallets", icon: "folder.fill")
         let dashboardNavigationVC = addNavigationAndTab(controller: DashboardViewController(), title: "Dashboard", icon: "chart.pie.fill")
         let infoNavigationVC = addNavigationAndTab(controller: InfoViewController(), title: "Information", icon: "info.circle.fill")
         

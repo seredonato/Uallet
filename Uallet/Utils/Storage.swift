@@ -14,16 +14,16 @@ class Storage{
         defaults.set(value, forKey: nameKey)
     }
     
-    static func saveStatusLogIn(value: Bool){
-        let defaults = UserDefaults.standard
-        defaults.set(true, forKey: "logueado")
-    }
-    
     static func getData(nameKey: String)->String{
         let defaults = UserDefaults.standard
         let result = defaults.string(forKey: nameKey)
         let description = result?.description
         return description == nil ? "" : description!
+    }
+    
+    static func saveStatusLogIn(value: Bool){
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "logueado")
     }
     
     static func saveDate(value: Date){
