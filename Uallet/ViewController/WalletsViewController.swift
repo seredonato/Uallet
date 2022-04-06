@@ -37,7 +37,9 @@ class WalletsViewController: UITableViewController {
         
         let wallet = WalletsStorage.shared.wallets[indexPath.row]
                 
-        cell.textLabel!.text = wallet.name
+        cell.lblName!.text = wallet.name
+        cell.lblCoin!.text = wallet.currency.rawValue
+        cell.lblAmount!.text = String(wallet.balance)
 
         return cell
     }
