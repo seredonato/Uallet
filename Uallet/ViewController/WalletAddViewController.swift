@@ -11,7 +11,7 @@ class WalletAddViewController: UIViewController {
     
     @IBOutlet weak var txtNameWallet: UITextField!
     @IBOutlet weak var txtAmountWallet: UITextField!
-    var coin: Currency = .Bitcoin
+    @IBOutlet weak var selectedCurrency: UISegmentedControl!
     var callback: ((Bool) -> Void)?
     
     func set(callback: @escaping (Bool)->Void) {
@@ -22,40 +22,23 @@ class WalletAddViewController: UIViewController {
         super.viewDidLoad()
         addBtnsWallet()
     }
-    
-    // MARK: - SegmentedControl COIN
-    
-    @IBOutlet weak var selectedCoin: UISegmentedControl!
-    
-    @IBAction func segmentedControlCoin(_ sender: Any) {
-        switch selectedCoin.selectedSegmentIndex{
-        case 0:
-            coin = .Bitcoin
-            break
-        case 1:
-            coin = .Dollar
-            break
-        case 2:
-            coin = .Peso
-            break
-        default:
-            coin = .Bitcoin
-        }
-    }
+
+
     
     // MARK: - Btn of Add Wallet
     
     @IBAction func addNewWallet() {
         let nameWallet = txtNameWallet.text!
         let amountWallet = txtAmountWallet.text!
-
+        let currency = Currency.from(index: selectedCurrency.selectedSegmentIndex)
+        
         let resultValidateEmptyFields = validateEmptyFields(nameWallet, amountWallet)
         
         if resultValidateEmptyFields{
             let alert = Utils.showAlert(title: "Agregar Wallet", message: "Complete los campos vacíos")
             present(alert, animated: true)
         }else{
-            let resultSave = saveWalletInStorage(nameWallet, self.coin, amountWallet)
+            let resultSave = saveWalletInStorage(nameWallet, currency, amountWallet)
             if resultSave{
                 dismiss(animated: true)
                 if let callback = callback {

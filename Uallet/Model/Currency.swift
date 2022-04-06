@@ -11,4 +11,16 @@ enum Currency: String{
     case Peso = "pesos"
     case Dollar = "dolares"
     case Bitcoin = "bitcoin"
+    
+    
+    static func from(index: Int) -> Currency {
+        switch index {
+        case 0:
+            return .Bitcoin
+        case 1:
+            return .Dollar
+        default:
+            return .Peso
+        }
+    }
 }
