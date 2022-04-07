@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="Uallet" customModuleProvider="target">
             <connections>
+                <outlet property="lblBalance" destination="cri-dx-fMa" id="tN0-ZH-thw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,8 +18,31 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gib-zD-dtW">
+                    <rect key="frame" x="71.5" y="417.5" width="271" height="61"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="El total de las Wallets en dólares es:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTk-FU-Klx">
+                            <rect key="frame" x="0.0" y="0.0" width="271" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cri-dx-fMa">
+                            <rect key="frame" x="101" y="28.5" width="69" height="32.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BackgroundColor"/>
+            <constraints>
+                <constraint firstItem="gib-zD-dtW" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="gXN-z6-9h6"/>
+                <constraint firstItem="gib-zD-dtW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kWI-hQ-5ym"/>
+            </constraints>
             <point key="canvasLocation" x="132" y="58"/>
         </view>
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="aNE-TI-wcF">

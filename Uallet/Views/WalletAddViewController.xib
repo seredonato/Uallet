@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletAddViewController" customModule="Uallet" customModuleProvider="target">
             <connections>
                 <outlet property="selectedCurrency" destination="KNQ-7p-89u" id="X55-KX-8lO"/>
-                <outlet property="txtAmountWallet" destination="gli-NH-gg5" id="tyh-cU-DVr"/>
+                <outlet property="txtBalanceWallet" destination="gli-NH-gg5" id="tyh-cU-DVr"/>
                 <outlet property="txtNameWallet" destination="0U7-Ik-3cL" id="hHV-4g-Itd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

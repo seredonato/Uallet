@@ -62,8 +62,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         defaults.set(true, forKey: "logueado")
     }
     
+    // MARK: - Disabled Rotation
     
-    //Disabled Rotation
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
     }
@@ -73,7 +73,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-    //KeyboardOff
+    // MARK: - Keyboard Off
     @IBAction func tapBackground(_ sender: Any) {
         txtUser.resignFirstResponder()
         txtPassword.resignFirstResponder()

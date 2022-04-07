@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="KGk-i7-Jjw" customClass="WalletViewCell" customModule="Uallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="468" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="468" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlG-nU-0Up">
+                        <rect key="frame" x="15" y="15" width="438" height="120"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZw-03-TVg">
+                                <rect key="frame" x="15" y="10" width="95.5" height="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MG0-IN-JEb">
+                                <rect key="frame" x="348" y="76" width="70" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="bitcoinsign.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UnF-jW-NzR">
+                                <rect key="frame" x="15" y="65.5" width="40" height="39"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VIE-WZ-VUr"/>
+                                    <constraint firstAttribute="width" constant="40" id="xXn-tt-loh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="SecondaryColor"/>
+                        <constraints>
+                            <constraint firstItem="IZw-03-TVg" firstAttribute="top" secondItem="hlG-nU-0Up" secondAttribute="top" constant="10" id="9bN-Lh-wBR"/>
+                            <constraint firstItem="IZw-03-TVg" firstAttribute="leading" secondItem="hlG-nU-0Up" secondAttribute="leading" constant="15" id="BZ0-dd-D4g"/>
+                            <constraint firstAttribute="bottom" secondItem="MG0-IN-JEb" secondAttribute="bottom" constant="20" id="Nd4-3A-Y4r"/>
+                            <constraint firstAttribute="trailing" secondItem="MG0-IN-JEb" secondAttribute="trailing" constant="20" id="Nqi-sk-JoS"/>
+                            <constraint firstItem="UnF-jW-NzR" firstAttribute="leading" secondItem="hlG-nU-0Up" secondAttribute="leading" constant="15" id="kio-DO-uIn"/>
+                            <constraint firstAttribute="bottom" secondItem="UnF-jW-NzR" secondAttribute="bottom" constant="15" id="zZy-r1-HQP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="BackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="hlG-nU-0Up" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="3XX-z0-8VY"/>
+                    <constraint firstAttribute="bottom" secondItem="hlG-nU-0Up" secondAttribute="bottom" constant="15" id="G0a-gc-pBb"/>
+                    <constraint firstItem="hlG-nU-0Up" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="SnH-oR-sTY"/>
+                    <constraint firstAttribute="trailing" secondItem="hlG-nU-0Up" secondAttribute="trailing" constant="15" id="Thf-yn-1oS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="currencyIcon" destination="UnF-jW-NzR" id="aq8-2u-jbT"/>
+                <outlet property="lblBalance" destination="MG0-IN-JEb" id="DBH-zG-XRv"/>
+                <outlet property="lblName" destination="IZw-03-TVg" id="vOl-o2-oGS"/>
+            </connections>
+            <point key="canvasLocation" x="102.89855072463769" y="99.107142857142847"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bitcoinsign.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryColor">
+            <color red="0.87450980392156863" green="0.3843137254901961" blue="0.41568627450980394" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

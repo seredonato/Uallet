@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Currency: String{
+enum Currency: String, Codable{
     case Peso = "pesos"
     case Dollar = "dolares"
     case Bitcoin = "bitcoin"

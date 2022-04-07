@@ -10,7 +10,7 @@ import UIKit
 class WalletAddViewController: UIViewController {
     
     @IBOutlet weak var txtNameWallet: UITextField!
-    @IBOutlet weak var txtAmountWallet: UITextField!
+    @IBOutlet weak var txtBalanceWallet: UITextField!
     @IBOutlet weak var selectedCurrency: UISegmentedControl!
     var callback: ((Bool) -> Void)?
     
@@ -29,16 +29,16 @@ class WalletAddViewController: UIViewController {
     
     @IBAction func addNewWallet() {
         let nameWallet = txtNameWallet.text!
-        let amountWallet = txtAmountWallet.text!
+        let balanceWallet = txtBalanceWallet.text!
         let currency = Currency.from(index: selectedCurrency.selectedSegmentIndex)
         
-        let resultValidateEmptyFields = validateEmptyFields(nameWallet, amountWallet)
+        let resultValidateEmptyFields = validateEmptyFields(nameWallet, balanceWallet)
         
         if resultValidateEmptyFields{
             let alert = Utils.showAlert(title: "Agregar Wallet", message: "Complete los campos vacíos")
             present(alert, animated: true)
         }else{
-            let resultSave = saveWalletInStorage(nameWallet, currency, amountWallet)
+            let resultSave = saveWalletInStorage(nameWallet, currency, balanceWallet)
             if resultSave{
                 dismiss(animated: true)
                 if let callback = callback {
@@ -48,10 +48,10 @@ class WalletAddViewController: UIViewController {
         }
     }
     
-    func saveWalletInStorage(_ nameWallet: String, _ coinWallet: Currency, _ amountWallet: String)-> Bool {
+    func saveWalletInStorage(_ nameWallet: String, _ currencyWallet: Currency, _ balanceWallet: String)-> Bool {
         let getWallet = Storage.getData(nameKey: nameWallet)
         if getWallet.isEmpty{
-            let wallet = Wallet(name: nameWallet, balance: Double(amountWallet) ?? 0, currency: coinWallet)
+            let wallet = Wallet(name: nameWallet, balance: Double(balanceWallet) ?? 0, currency: currencyWallet)
             WalletsStorage.shared.add(wallet)
             return true
         }else{
@@ -88,7 +88,7 @@ class WalletAddViewController: UIViewController {
     
     
     // MARK: - EmptyFields
-    func validateEmptyFields(_ name: String, _ amount: String) -> Bool{
-        name.isEmpty || amount.isEmpty ? true : false
+    func validateEmptyFields(_ name: String, _ balance: String) -> Bool{
+        name.isEmpty || balance.isEmpty ? true : false
     }
 }

@@ -39,4 +39,12 @@ class MainTabViewController: UITabBarController {
         return navigationVC
     }
 
+    // MARK: - Disabled Rotation
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

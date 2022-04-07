@@ -9,10 +9,22 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var lblInfo: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
         addBtnLogout()
+        
+        updateInfo()
+        
+        WalletsStorage.shared.addDataChanged {
+            self.updateInfo()
+        }
+    }
+    
+    func updateInfo() {
+        lblInfo.text = "Hay \(WalletsStorage.shared.wallets.count) wallet(s)"
     }
     
     func addBtnLogout(){
