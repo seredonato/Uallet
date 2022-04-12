@@ -15,7 +15,7 @@ class APIRatePromises{
     
     static func bitcoinRatePromises() -> Promise<Double> {
         return Promise { resolver in
-            AF.request("http://api.coindesk.com/v1/bpi/currentprice.json")
+            AF.request("https://api.coindesk.com/v1/bpi/currentprice.json")
                 .responseDecodable(of: APIBitcoinResponse.self) {
                     response in
                     if let value = response.value {
@@ -30,7 +30,7 @@ class APIRatePromises{
     
     static func dolarOfficialRatePromises() -> Promise<DolarRate> {
         return Promise { resolver in
-            AF.request("http://api-dolar-argentina.herokuapp.com/api/dolaroficial")
+            AF.request("https://api-dolar-argentina.herokuapp.com/api/dolaroficial")
                 .responseDecodable(of: APIDolarResponse.self) {
                     response in
                     if let value = response.value {
@@ -49,7 +49,7 @@ class APIRatePromises{
     
     static func dolarBlueRatePromises() -> Promise<DolarRate> {
         return Promise { resolver in
-            AF.request("http://api-dolar-argentina.herokuapp.com/api/dolarblue")
+            AF.request("https://api-dolar-argentina.herokuapp.com/api/dolarblue")
                 .responseDecodable(of: APIDolarResponse.self) {
                     response in
                     if let value = response.value {

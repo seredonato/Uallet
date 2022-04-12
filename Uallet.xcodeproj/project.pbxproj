@@ -11,6 +11,7 @@
 		A3416483C30BA112EB654857 /* Pods_Uallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46907D3A7067CAA688BC8F01 /* Pods_Uallet.framework */; };
 		B00D43B744E91F69058CEC8A /* Pods_UalletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC875F7EB09A00096933A4 /* Pods_UalletTests.framework */; };
 		F20EAECF27F6320000890D14 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20EAECE27F6320000890D14 /* Utils.swift */; };
+		F226572D2805E947007A4521 /* WalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F226572C2805E947007A4521 /* WalletViewController.xib */; };
 		F22CF9C527F5082D001789A4 /* WalletAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CF9C327F5082D001789A4 /* WalletAddViewController.swift */; };
 		F22CF9C627F5082D001789A4 /* WalletAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F22CF9C427F5082D001789A4 /* WalletAddViewController.xib */; };
 		F238AA7127F37AA400C731EB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F238AA7027F37AA400C731EB /* API.swift */; };
@@ -41,7 +42,6 @@
 		F2DBCE3F27FCAF4900E2961E /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DBCE3E27FCAF4900E2961E /* Wallet.swift */; };
 		F2DBCE4127FCAFAD00E2961E /* WalletsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DBCE4027FCAFAD00E2961E /* WalletsStorage.swift */; };
 		F2DBCE4627FCB17A00E2961E /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DBCE4427FCB17A00E2961E /* WalletsViewController.swift */; };
-		F2DBCE4727FCB17A00E2961E /* WalletsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2DBCE4527FCB17A00E2961E /* WalletsViewController.xib */; };
 		F2DBCE4A27FCB2BA00E2961E /* WalletViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DBCE4827FCB2BA00E2961E /* WalletViewCell.swift */; };
 		F2DBCE4B27FCB2BA00E2961E /* WalletViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2DBCE4927FCB2BA00E2961E /* WalletViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -74,6 +74,7 @@
 		EF86BF892DB637A54EB8B0FB /* Pods-Uallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uallet.debug.xcconfig"; path = "Target Support Files/Pods-Uallet/Pods-Uallet.debug.xcconfig"; sourceTree = "<group>"; };
 		F10BF93B9B097367208375C1 /* Pods-Uallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uallet.release.xcconfig"; path = "Target Support Files/Pods-Uallet/Pods-Uallet.release.xcconfig"; sourceTree = "<group>"; };
 		F20EAECE27F6320000890D14 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F226572C2805E947007A4521 /* WalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletViewController.xib; sourceTree = "<group>"; };
 		F22CF9C327F5082D001789A4 /* WalletAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAddViewController.swift; sourceTree = "<group>"; };
 		F22CF9C427F5082D001789A4 /* WalletAddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletAddViewController.xib; sourceTree = "<group>"; };
 		F238AA7027F37AA400C731EB /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -108,7 +109,6 @@
 		F2DBCE3E27FCAF4900E2961E /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		F2DBCE4027FCAFAD00E2961E /* WalletsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsStorage.swift; sourceTree = "<group>"; };
 		F2DBCE4427FCB17A00E2961E /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
-		F2DBCE4527FCB17A00E2961E /* WalletsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletsViewController.xib; sourceTree = "<group>"; };
 		F2DBCE4827FCB2BA00E2961E /* WalletViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewCell.swift; sourceTree = "<group>"; };
 		F2DBCE4927FCB2BA00E2961E /* WalletViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,7 +251,7 @@
 				F280943A27EE2AA5004856EF /* LoginViewController.storyboard */,
 				F2AFD56827F4B58200542004 /* MainTabViewController.xib */,
 				F238AA7527F3927800C731EB /* HomeViewController.xib */,
-				F2DBCE4527FCB17A00E2961E /* WalletsViewController.xib */,
+				F226572C2805E947007A4521 /* WalletViewController.xib */,
 				F22CF9C427F5082D001789A4 /* WalletAddViewController.xib */,
 				F2BCE58E27FDF81300DFE21A /* WalletDetailsViewController.xib */,
 				F238AA7927F39B7C00C731EB /* DashboardViewController.xib */,
@@ -402,9 +402,9 @@
 				F280944127EE2AA6004856EF /* LaunchScreen.storyboard in Resources */,
 				F238AA7B27F39B7C00C731EB /* DashboardViewController.xib in Resources */,
 				F280943E27EE2AA6004856EF /* Assets.xcassets in Resources */,
-				F2DBCE4727FCB17A00E2961E /* WalletsViewController.xib in Resources */,
 				F2BCE59027FDF81300DFE21A /* WalletDetailsViewController.xib in Resources */,
 				F280943C27EE2AA5004856EF /* LoginViewController.storyboard in Resources */,
+				F226572D2805E947007A4521 /* WalletViewController.xib in Resources */,
 				F238AA7727F3927800C731EB /* HomeViewController.xib in Resources */,
 				F2AFD56A27F4B58200542004 /* MainTabViewController.xib in Resources */,
 				F2DBCE4B27FCB2BA00E2961E /* WalletViewCell.xib in Resources */,
