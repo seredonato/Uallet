@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var lblInfo: UILabel!
+    //comentario prueba
     
     override func viewDidLoad() {
         super.viewDidLoad()
